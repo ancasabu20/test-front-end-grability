@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>Prueba</title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Andrea Sanchez'>
+    <meta name='robots' content='all'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link rel="stylesheet" href="css/default.css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.css" media="all">
+    
+  </head>
+  <body>
+   <div class="row">
+      <header class="col-md-12"> <!-- Sección de Búsqueda -->
+        <div class="row">
+          <div class="col-md-2">
+            <img src="img/marvel.png"
+            >
+          </div>
+          <div class="col-md-7">
+            <form>
+              <input type="search" name="buscartxt" placeholder="Search Character...">
+              <input type="submit" name="buscarbtn" id="buscarbtn" value=" ">
+            </form>
+          </div>
+        </div>
+      </header>
+       <section class="col-md-12">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-8">
+                <h1 class="characters">Characters</h1>
+            </div>
+            <div class="col-md-4">
+                <select name="order">
+                  <option>Short By</option>
+                  <option value="name">Name</option>
+                  <option value="description">Description</option>
+                  <option value="modify">Modify</option>
+                </select>
+              </div>
+            </div>
+            <div class="row characters-section">
+            
+            </div>
+            
+            <div class="modal" tabindex="-1" role="dialog">
+                
+            </div><!-- /.modal -->
+
+            <div class="row pagination center-xs">
+              <div class="col-lg-6">
+                  <ul>
+                    <li>
+                      <a href="#" class="previous">
+                        <span><<</span>
+                      </a>
+                    </li>
+                    <li><a href="?&offset=10">1</a></li>
+                    <li><a href="?&offset=20">2</a></li>
+                    <li><a href="?&offset=30">3</a></li>
+                    <li><a href="?&offset=40">4</a></li>
+                    <li><a href="?&offset=50">5</a></li>
+                    <li>
+                      <a href="#" class="next">
+                        <span>>></span>
+                      </a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">    </br>
+            <h1 class="favourites">My favourites</h1>
+            <div class="favourites-container">
+
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <footer class="col-md-12">
+        <div class="row">
+          <div class="col-md-8">
+            <p>Grability 2017 - Todos los derechos reservados </p>
+          </div>
+          <div class="col-md-3">
+            <img src="img/grability-logo.png">
+          </div>
+        </div>
+      </footer>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <script type="text/javascript" src="js/default.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
+  </body>
+</html>
