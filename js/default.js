@@ -1,6 +1,7 @@
 // JavaScript Document   
 $( document ).ready(function() {
    search(1);
+   favourites(2539);
 });
 
 
@@ -83,7 +84,6 @@ function modal(id){
 
 var urls ="https://gateway.marvel.com:443/v1/public/comics?characters="+id+"&limit=1&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
 
- //var urls ="https://gateway.marvel.com:443/v1/public/characters/"+id+"?&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
   
 $.ajax({
     url: urls,
@@ -108,13 +108,39 @@ $('div.remodal').empty();
                         .append(element.description)
                       
                       )) )
-                       .append($('<div class="row options"><div class="col-md-6"><a href="" class="add" onclick="favorite('+element.id+')"><span></span> ADD TO FAVORITES</a></div><div class="col-md-6"><a href="https://comicstore.marvel.com/" class="buy"><span></span> BUY FOR $'+precio+'</a>')
+                       .append($('<div class="row options"><div class="col-md-6"><a href="" class="add" onclick="favourites('+element.id+')"><span></span> ADD TO FAVORITES</a></div><div class="col-md-6"><a href="https://comicstore.marvel.com/" class="buy"><span></span> BUY FOR $'+precio+'</a>')
                       )
      }); 
         });  
 }
 
-function  favorite (id){
+function  favourites(id){
+
+var urls ="https://gateway.marvel.com:443/v1/public/comics/"+id+"?apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
+
+console.log(urls);
+   
+$.ajax({
+    url: urls,
+    method: "GET"
+   }).done(function(response) {
+     $.each(response.data.results, function(index, element) {
+
+ $("div.favourites-container")
+         .append($('<div class="col-md-12">')
+                  .append($('<div class="box">')
+                    .append($('<a href="">') )
+                      .append($('<img>')
+                        .attr('src', element.thumbnail.path + '/portrait_fantastic.' + element.thumbnail.extension)
+                      )
+                 
+                  
+                      .append($('<h1>')
+                        .append(element.title)
+                      )) )
+                       
+     }); 
+        });  
 
 
 }
