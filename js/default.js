@@ -2,6 +2,8 @@
 $( document ).ready(function() {
    search(1);
    favourites(2539);
+   favourites(22506);
+   favourites(61450);
 });
 
 
