@@ -11,15 +11,16 @@ function searchChar(){
 
 function search(val){
 
+var name = document.getElementById("buscartxt").value;
 
-if(val==1){
+if(val==1 && name.length==0){
   var URLsearch = window.location.search;
   var urls= "http://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552&limit=10"+URLsearch;
 }else{
- var name = document.getElementById("buscartxt").value;
  var urls= "http://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552&name="+name;
 
 }
+//console.log(urls);
 
 $("div.characters-section").empty();
  $.ajax({
