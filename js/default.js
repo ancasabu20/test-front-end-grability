@@ -1,9 +1,12 @@
 // JavaScript Document   
 $( document ).ready(function() {
    search(1);
+   var comic = localStorage.getItem('idComic');
+   favourites(comic);
    favourites(2539);
    favourites(22506);
    favourites(61450);
+
 });
 
 
@@ -119,8 +122,8 @@ $('div.remodal').empty();
 function  favourites(id){
 
 var urls ="https://gateway.marvel.com:443/v1/public/comics/"+id+"?apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
-
-console.log(urls);
+localStorage.setItem("idComic",id);
+//console.log(urls);
    
 $.ajax({
     url: urls,
