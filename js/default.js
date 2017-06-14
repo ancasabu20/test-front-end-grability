@@ -1,13 +1,32 @@
 // JavaScript Document   
-var URLsearch = window.location.search;
-var urls= "http://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552&limit=10"+URLsearch;
+$( document ).ready(function() {
+   search(1);
+});
 
+
+function searchChar(){
+  search(2);
+}
+
+
+function search(val){
+
+
+if(val==1){
+  var URLsearch = window.location.search;
+  var urls= "http://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552&limit=10"+URLsearch;
+}else{
+ var name = document.getElementById("buscartxt").value;
+ var urls= "http://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552&name="+name;
+
+}
+
+$("div.characters-section").empty();
  $.ajax({
     url: urls,
     method: "GET"
    }).done(function(response) {
 
-      $("div.characters-container").empty();
       $.each(response.data.results, function(index, element) {
          // console.log(element);
          $("div.characters-section")
@@ -56,13 +75,9 @@ var urls= "http://gateway.marvel.com/v1/public/characters?orderBy=name&apikey=39
  })
       });         
 
-
+}
 function modal(id){
  var urls ="https://gateway.marvel.com:443/v1/public/characters/"+id+"?&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
-  
-    
- 
- 
   
 $.ajax({
     url: urls,
@@ -92,4 +107,6 @@ $('div.remodal').empty();
      }); 
         });  
 }
+
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
