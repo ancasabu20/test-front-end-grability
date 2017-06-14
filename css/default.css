@@ -53,7 +53,7 @@ section select {
 	box-shadow:10px 9px 22px -7px rgba(0,0,0,.22);
 	position:relative;
 	top:-20px;
-	left:-18px
+	left: -151px !important;
 }
 .character-box .box h1 {
 	color:#473d3e;
@@ -307,12 +307,12 @@ section {
 		display:block
 	}
 	.character-box .box h1 {
-		color:#473d3e;
-		margin-top:-14px;
-		font-size:25px;
-		margin-bottom:6px;
-		text-align:left;
-		padding:0 20px
+		color: #473d3e;
+		margin-top: -103px;
+		font-size: 25px;
+		margin-bottom: 6px;
+		text-align: left;
+		padding: 22px 168px;
 	}
 	.character-box .box a.more {
 		background-color:#ec1d23;
