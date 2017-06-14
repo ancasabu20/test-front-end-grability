@@ -77,15 +77,20 @@ $("div.characters-section").empty();
       });         
 
 }
+
+
 function modal(id){
- var urls ="https://gateway.marvel.com:443/v1/public/characters/"+id+"?&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
+
+var urls ="https://gateway.marvel.com:443/v1/public/comics?characters="+id+"&limit=1&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
+
+ //var urls ="https://gateway.marvel.com:443/v1/public/characters/"+id+"?&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
   
 $.ajax({
     url: urls,
     method: "GET"
    }).done(function(response) {
      $.each(response.data.results, function(index, element) {
-console.log(element);
+     var precio = element.prices[0].price;
 $('div.remodal').empty();
  $("div.remodal")
          .append($('<div class="row info">')
@@ -96,18 +101,22 @@ $('div.remodal').empty();
                   )
                   .append($('<div class="col-md-8 right"><a href="" data-remodal-action="cancel" class="close"></a>')
                       .append($('<h1>')
-                        .append(element.name)
+                        .append(element.title)
                       )
                       .append($('<p>')
                      
                         .append(element.description)
                       
                       )) )
-                       .append($('<div class="row options"><div class="col-md-6"><a href="" class="add" onclick="favorite('+element.id+')"><span></span> ADD TO FAVORITES</a></div><div class="col-md-6"><a href="https://comicstore.marvel.com/" class="buy"><span></span> BUY FOR $3.99</a>')
+                       .append($('<div class="row options"><div class="col-md-6"><a href="" class="add" onclick="favorite('+element.id+')"><span></span> ADD TO FAVORITES</a></div><div class="col-md-6"><a href="https://comicstore.marvel.com/" class="buy"><span></span> BUY FOR $'+precio+'</a>')
                       )
      }); 
         });  
 }
 
+function  favorite (id){
+
+
+}
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
