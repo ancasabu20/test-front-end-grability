@@ -1,11 +1,27 @@
 // JavaScript Document   
 $( document ).ready(function() {
    search(1);
-   var comic = localStorage.getItem('idComic');
-   favourites(comic);
-   favourites(2539);
-   favourites(22506);
-   favourites(61450);
+
+   //Favoritos
+   console.log(localStorage.length);
+
+  
+   if(localStorage.length==0){
+       favourites(1);
+   }else{
+
+
+console.log(localStorage);
+
+for (i = 0; i <=localStorage.clickcount; i++) { 
+
+    var comic = localStorage.getItem('data_'+i);
+ 
+     favourites(comic);
+ }
+  
+   
+   }
 
 });
 
@@ -121,8 +137,25 @@ $('div.remodal').empty();
 
 function  favourites(id){
 
-var urls ="https://gateway.marvel.com:443/v1/public/comics/"+id+"?apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
-localStorage.setItem("idComic",id);
+if(id==1){
+var urls ="https://gateway.marvel.com:443/v1/public/comics?limit=3&apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
+
+
+}else{
+  var urls ="https://gateway.marvel.com:443/v1/public/comics/"+id+"?apikey=39e4791e9527c9f646758dc6e5e5a9b4&ts=1&hash=b03a121752073434b2cd0be9ac6df552";
+  
+  
+
+if (localStorage.clickcount) {
+    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+} else {
+    localStorage.clickcount = 0;
+}
+
+localStorage.setItem("data_"+localStorage.clickcount,id);
+}
+
+
 //console.log(urls);
    
 $.ajax({
